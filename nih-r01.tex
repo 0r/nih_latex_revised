@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage[sort&compress]{natbib}
 \usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage[hidelinks]{hyperref}
 
 % Use Helvetica font.
 \usepackage{helvet}
@@ -12,15 +13,54 @@
 % No page numbers.
 \pagestyle{empty}
 
+% Allow wrapping of text around figures.
+\usepackage{wrapfig}
+\usepackage{hyperref}
+
+% A space-saving version of \paragraph.
+\newcommand{\myparagraph}[1]{\vspace{0.5ex}\noindent{\bf #1} ~~} 
+
+% Make captions have small font.
+\usepackage[font=scriptsize]{caption}
+
 \newcommand{\instructions}[1]{}
 % Before submitting, comment out this line.
 %\renewcommand{\instructions}[1]{{\scriptsize \sc #1}}
 
+\usepackage{xcolor}
+\newcommand{\fixme}[1]{}
+\renewcommand{\fixme}[1]{{\color{red} {#1}}\color{black}}
+
+% Rotate 45 degrees.
+\usepackage{rotating}
+\newcommand{\rdg}[1]{\begin{rotate}{45} #1 \end{rotate}}
+
+% Display a checkmark.
+\usepackage{amssymb}
+\newcommand{\vv}{\checkmark}
+
+% Compact titles.
+\usepackage[compact]{titlesec}
+
+% Compacted lists.  Use itemize* or enumerate* for compact version.
+\usepackage{mdwlist}
+
+% Reduce space after figures.
+\setlength{\belowcaptionskip}{-10pt}
+
+\usepackage{authblk} % Better formatting of author list.
+
 % The title has an 81-character maximum.
 \title{INSERT TITLE HERE}
 
-\author{MY NAME\\
-MY AFFILIATION}
+\author[1]{My name}
+\author[1]{Michael MacCoss}
+\author[2]{Sewoong Oh}
+\author[1]{Devin Schweppe}
+
+\affil[1]{My affiliation}
+
+\date{}
 
 \begin{document}
 
@@ -28,12 +68,44 @@ MY AFFILIATION}
 
 \begin{center}
 An NIH R01 proposal, submitted in response to \\
-{\em PAR-XX-XXX: INSERT TITLE OF PAR HERE}.
+{\em \href{https://grants.nih.gov/grants/guide/pa-files/PA-20-185.html}{PA-20-185}: NIH Research Project Grant}.
 \end{center}
 
 \vfill
 
+\noindent
+Deadline for draft science and final budget: \\
+Deadline for submission to OSP: \\
+Deadline for submission to NIH: \\
+
 {\scriptsize Compiled on \today\ at \currenttime.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section*{PHS Assignment Request Form}
+
+\subsection*{Awarding component assignment suggestions}
+
+\instructions{If you have a suggestion for an awarding component (e.g., NIH Institute/Center) assignment, use the link below to identify the appropriate short abbreviation (e.g., ``NCI'' for National
+  Cancer Institute) and enter it below in the boxes for ``Suggested Awarding Components''. All suggestions will be considered; however, not all assignment suggestions can be honored.
+
+  Information about Awarding Component can be found here: \url{https://grants.nih.gov/grants/phs_assignment_information.htm#AwardingComponents}}
+
+\subsection*{Study section assignment suggestions}
+
+\instructions{If you have a suggestion for a study section assignment, use the link below to identify a study section(s). Enter the short abbreviation for that study section in the boxes for ``Suggested
+Study Sections.'' Remove all hyphens, parentheses, and spaces. All suggestions will be considered; however, not all assignment suggestions can be honored.
+
+Information about Study Sections can be found here: \url{https://grants.nih.gov/grants/phs_assignment_information.htm#StudySection}}
+
+\subsection*{Rationale for assignment suggestions}
+
+\instructions{Entry is limited to 1000 characters}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
@@ -69,7 +141,8 @@ An NIH R01 proposal, submitted in response to \\
     succinct and use plain language that can be understood by a
     general, lay audience.}
 
-2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \section*{Specific aims}
 
@@ -136,6 +209,7 @@ An NIH R01 proposal, submitted in response to \\
     approaches or methodologies, instrumentation, or interventions
     proposed? }
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Approach}
 
@@ -152,7 +226,7 @@ An NIH R01 proposal, submitted in response to \\
 
 \instructions {For new applications, include information on
   Preliminary Studies as part of the Approach section. Discuss the
-  PD/PI'ｪs preliminary studies, data, and/or experience pertinent to
+  PD/PI's preliminary studies, data, and/or experience pertinent to
   this application. Except for Exploratory/Development Grants
   (R21/R33), Small Research Grants (R03), Academic Research
   Enhancement Award (AREA) Grants (R15), and Phase I Small Business
@@ -167,11 +241,36 @@ An NIH R01 proposal, submitted in response to \\
     is in the early stages of development, will the strategy establish
     feasibility and will particularly risky aspects be managed?}
 
-\subsubsection*{Preliminary studies}
+\subsubsection*{Aim 1: }
 
-\subsubsection*{Specific Aim 1:}
+\myparagraph{Motivation}
 
-\subsubsection*{Specific Aim 2:}
+\myparagraph{Methodology}
+
+\myparagraph{Benchmarks for success}
+
+\myparagraph{Alternative strategies}
+
+\subsubsection*{Aim 2: }
+
+\myparagraph{Motivation}
+
+\myparagraph{Methodology}
+
+\myparagraph{Benchmarks for success}
+
+\myparagraph{Alternative strategies}
+
+\subsubsection*{Aim 3: }
+
+\myparagraph{Motivation}
+
+\myparagraph{Methodology}
+
+\myparagraph{Benchmarks for success}
+
+\myparagraph{Alternative strategies}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
@@ -206,24 +305,107 @@ An NIH R01 proposal, submitted in response to \\
 \renewcommand{\refname}{Bibliography \& References Cited}
 \bibliography{refs}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \section*{Resource sharing plan}
 
+\instructions{Investigators seeking \$500,000 or more in direct costs
+  (exclusive of consortium F\&A) in any budget period are expected to
+  include a brief 1-paragraph description of how final research data
+  will be shared, or explain why data-sharing is not possible (for
+  example human subject concerns, the Small Business Innovation
+  Development Act provisions, etc.). Specific FOAs may require that
+  all applications include this information regardless of the dollar
+  level. Applicants are encouraged to read the FOA carefully and
+  discuss their data-sharing plan with their program contact at the
+  time they negotiate an agreement with the Institute/Center (IC)
+  staff to accept assignment of their application.}
+
 \subsection*{Data sharing plan}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Software dissemination plan}
+
+\instructions{A software dissemination plan, with appropriate
+  timelines, must be included in the application. There is no
+  prescribed single license for software produced through grants
+  responding to this announcement.  However, NIH does have goals for
+  software dissemination, and reviewers will be instructed to evaluate
+  the dissemination plan relative to these goals:
+\begin{enumerate}
+\item The software should be freely available to biomedical
+  researchers and educators in the non-profit sector, such as
+  institutions of education, research institutions, and government
+  laboratories.
+\item The terms of software availability should permit the
+  dissemination and commercialization of enhanced or customized
+  versions of the software, or incorporation of the software or pieces
+  of it into other software packages.
+\item To preserve utility to the community, the software should be
+  transferable such that another individual or team can continue
+  development in the event that the original investigators are
+  unwilling or unable to do so.
+\item The terms of software availability should include the ability of
+  researchers to modify the source code and to share modifications
+  with other colleagues.  An applicant should take responsibility for
+  creating the original and subsequent ``official'' versions of a
+  piece of software.
+\item To further enhance the potential impact of their software,
+  applicants may consider proposing a plan to manage and disseminate
+  the improvements or customizations of their tools and resources by
+  others.  This proposal may include a plan to incorporate the
+  enhancements into the ``official'' core software, may involve the
+  creation of an infrastructure for plug-ins, or may describe some
+  other solution.
+\end{enumerate}
+The adequacy of the software sharing plans will be considered by
+Program staff when making recommendations about funding applications.
+In making such considerations, prior to funding, program staff may
+negotiate modifications of software sharing plans with the Principal
+Investigator before recommending funding of an application. Any
+software dissemination plans represent a commitment by the institution
+(and its subcontractors as applicable) to support and abide by the
+plan.  The final version of any accepted software sharing plans will
+become a condition of the award of the grant. The effectiveness of
+software sharing may be evaluated as part of the administrative review
+of each Non-Competing Grant Progress Report (PHS 2590).}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section*{Equipment}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \section*{Budget justification}
 
 \paragraph{Personnel}
 
-\begin{itemize}
+\paragraph{Equipment}
 
-\item 
+\paragraph{Travel}
+
+\paragraph{Other costs}
+
+\paragraph{Online storage and backup}
+
+\paragraph{Computing services}
+ 
+\paragraph{Benefit and Escalation Rates}
+\begin{itemize}
+\item \% for faculty
+\item \% for professional staff
+\item \% for postdoctoral associates
+\item \% for graduate students
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{F \& A Rate}
+The current F \& A rate of XX.X\% is a negotiated agreement between DHHS and the University of Washington in a letter dated XXX.
+
+\paragraph{Tuition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \section*{Resources}
 
@@ -254,12 +436,11 @@ An NIH R01 proposal, submitted in response to \\
     the scientific environment, subject populations, or collaborative
     arrangements?}
 
-\paragraph{Office}
-
 \paragraph{Computer}
+
+\paragraph{Office}
 
 \paragraph{Other}
 
-\paragraph{Major Equipment}
 
 \end{document}
