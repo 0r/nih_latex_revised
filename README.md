@@ -1,6 +1,6 @@
 # Preparing an NIH grant proposal using LaTeX
 
-The NIH has very specific guidelines for preparing a grant proposal, and getting those guidelines implemented in LaTeX is somewhat non-trivial. For my own future reference and to help others who may want to submit NIH grants in LaTeX format, I am providing this template. Using this simple makefile produces an empty document that looks like this. I have used this form to successfully submit multiple grant proposals to the NIH, so I feel somewhat confident that it accurately implements the NIH guidelines.
+The NIH has [very specific guidelines](https://grants.nih.gov/grants/funding/phs398/phs398.html) for preparing a grant proposal, and getting those guidelines implemented in LaTeX is somewhat non-trivial. For my own future reference and to help others who may want to submit NIH grants in LaTeX format, I am providing [this template](https://github.com/Noble-Lab/nih-latex/blob/main/nih-r01.tex). Using [this simple makefile](https://github.com/Noble-Lab/nih-latex/blob/main/makefile) produces an empty document that looks like [this](https://github.com/Noble-Lab/nih-latex/blob/main/nih-r01.pdf). I have used this form to successfully submit multiple grant proposals to the NIH, so I feel somewhat confident that it accurately implements the NIH guidelines.
 
 Here are some notes regarding the template:
 
